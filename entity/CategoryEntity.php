@@ -13,7 +13,6 @@
 
         
 
-
         /**
          * Get the value of idCategory
          *
@@ -38,7 +37,7 @@
                 return $this;
         }
 
-        /**
+          /**
          * Get the value of name
          *
          * @return string
@@ -61,7 +60,4 @@
 
                 return $this;
         }
-
-
-        
     }

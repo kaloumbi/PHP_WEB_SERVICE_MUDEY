@@ -31,13 +31,36 @@
     $createUser = $db->createUser($user);
     */
 
-    $userAuth = new UserEntity();
+    /**
+     * AUTHENTIFICATION
+     */
+
+    /* $userAuth = new UserEntity();
     $userAuth->setEmail("kaloumbi@gmail.com");
     $userAuth->setPassword("passer");
 
     $varAuth = $db->authentifier($userAuth);
    
-    var_dump($varAuth);
+    var_dump($varAuth); */
+
+    /* $category = new CategoryEntity();
+    $category->setName("CatApi 1");
+
+    $categ = $db->createCategory($category);
+    var_dump($categ); */
+
+   
+  /*  $order = new OrdersEntity();
+   $order->setIdUser(5);
+   $order->setIdProduct(11);
+   $order->setQuantity(10);
+   $order->setPrice(2000);
+
+   $ordTest = $db->createOrders($order);
+   var_dump($ordTest); */
+
+   
+
                     
     /**
      *  LISTER

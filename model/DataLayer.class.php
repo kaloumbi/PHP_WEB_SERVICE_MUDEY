@@ -112,9 +112,12 @@ class DataLayer_class
     }
 
 
+
+
     function createCategory(CategoryEntity $category)
     {
-        $sql = "INSERT INTO `category`(`name`) VALUES (':name')";
+        $sql = "INSERT INTO `e-bestcommerce_mudey_db`.`category`(`name`) 
+                VALUES (:name)";
 
         try {
             $result = $this->connexion->prepare($sql);
@@ -131,8 +134,9 @@ class DataLayer_class
             }
 
 
-        } catch (\PDOException $th) {
-            //throw $th;
+        } catch (\PDOException $ex) {
+            echo "Erreur : ". $ex->getMessage();
+
             return null;
         }
 
@@ -144,7 +148,7 @@ class DataLayer_class
     function createProduct(ProductEntity $product)
     {
 
-        $sql = "INSERT INTO `product`(`name`, `description`, `price`, `stock`, `category`, `image`) 
+        $sql = "INSERT INTO `e-bestcommerce_mudey_db`.`product`(`name`, `description`, `price`, `stock`, `category`, `image`) 
             VALUES (:name,:description,:price,:stock,:category,:image)";
 
         try {
@@ -177,7 +181,7 @@ class DataLayer_class
     function createOrders(OrdersEntity $order)
     {
 
-        $sql = "INSERT INTO `orders`(`id_customers`, `id_product`, `quantity`, `price`) 
+        $sql = "INSERT INTO `e-bestcommerce_mudey_db`.`orders`(`id_customers`, `id_product`, `quantity`, `price`) 
             VALUES (:idCustomers,:idProduct,:quantity,:price)";
 
         try {
@@ -198,7 +202,8 @@ class DataLayer_class
                 return false;
             }
 
-        } catch (\PDOException $th) {
+        } catch (\PDOException $ex) {
+            echo "Erreur :".$ex->getMessage();
             return null;
         }
     }

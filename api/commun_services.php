@@ -64,3 +64,15 @@
 
 
 
+    //FUNCTION POUR CONVERTIR DES OBJETS METIER EN TABLEAU
+    function clearDataArray($array_obj_metier) {
+        
+        $result = [];
+        foreach ($array_obj_metier as $key => $value) {
+            $result[$key] = clearData($value);
+        }
+
+        return $result;
+    }
+
+
