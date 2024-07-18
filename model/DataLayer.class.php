@@ -10,7 +10,7 @@ class DataLayer_class
 
         try {
             $this->connexion = new PDO($var, DB_USER, DB_PASSWORD);
-            echo "connexion reussie !";
+            //echo "connexion reussie !";
 
         } catch (\Throwable $e) {
             //throw $th;
