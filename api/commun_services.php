@@ -10,6 +10,7 @@
     define("CONFIG", ROOT.SP."config");
     define("MODEL", ROOT.SP."model");
     define("ENTITY", ROOT.SP."entity");
+    define("API_KEY", "4e9f68c76b4e3d7a8b5f1c2d3e4f5a6b");
 
 
     //IMPORTATION DES FICHIERS DE CONFIGURATION
@@ -74,5 +75,22 @@
 
         return $result;
     }
+
+    //MISE NE PLACE D'UNE FONCTION NOUS GERANT L'ACCÈS !
+    function controlAccess() {
+        global $_REQUEST;
+        
+        if (!isset($_REQUEST['API_KEY']) || empty($_REQUEST['API_KEY'])) {
+            produceErrorAuth();
+            exit();
+        }elseif($_REQUEST['API_KEY'] !== API_KEY){
+            produceError("Api_Key incorrecte !");
+            exit();
+        }
+
+    }
+
+    //APPEL DE LA FONCTION DE SECURISATION DE NOTRE API
+    controlAccess();
 
 

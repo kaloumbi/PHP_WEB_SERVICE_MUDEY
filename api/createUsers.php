@@ -2,16 +2,16 @@
 
     require 'commun_services.php';
 
-    if (!isset($_REQUEST['sexe']) || !isset($_REQUEST['pseudo']) || !isset($_REQUEST['firstname']) || !isset($_REQUEST['lastname']) 
-        || !isset($_REQUEST['description']) || !isset($_REQUEST['dateBirth']) || !isset($_REQUEST['adresse_facturation']) || !isset($_REQUEST['adresse_livraison']) || !isset($_REQUEST['tel']) || !isset($_REQUEST['email']) || !isset($_REQUEST['password']) ) {
+    if (!isset($_POST['sexe']) || !isset($_POST['pseudo']) || !isset($_POST['firstname']) || !isset($_POST['lastname']) 
+        || !isset($_POST['description']) || !isset($_POST['dateBirth']) || !isset($_POST['adresse_facturation']) || !isset($_POST['adresse_livraison']) || !isset($_POST['tel']) || !isset($_POST['email']) || !isset($_POST['password']) ) {
         
         produceErrorRequest();
         return;
     }
 
     //tester si un champ est vide
-    if (empty($_REQUEST['sexe']) || empty($_REQUEST['pseudo']) || empty($_REQUEST['firstname']) || empty($_REQUEST['lastname']) 
-        || empty($_REQUEST['description']) || empty($_REQUEST['dateBirth']) || empty($_REQUEST['adresse_facturation']) || empty($_REQUEST['adresse_livraison']) || empty($_REQUEST['tel']) || empty($_REQUEST['email']) || empty($_REQUEST['password']) ) {
+    if (empty($_POST['sexe']) || empty($_POST['pseudo']) || empty($_POST['firstname']) || empty($_POST['lastname']) 
+        || empty($_POST['description']) || empty($_POST['dateBirth']) || empty($_POST['adresse_facturation']) || empty($_POST['adresse_livraison']) || empty($_POST['tel']) || empty($_POST['email']) || empty($_POST['password']) ) {
         
         produceErrorRequest();
         return;
@@ -20,17 +20,17 @@
     try {
         $user = new UserEntity();
         //on modifie le name et lui donner la valeur reçu par le name
-        $user->setSexe($_REQUEST['sexe']);
-        $user->setPseudo($_REQUEST['pseudo']);
-        $user->setFirstname($_REQUEST['firstname']);
-        $user->setLastname($_REQUEST['lastname']);
-        $user->setDescription($_REQUEST['description']);
-        $user->setDateBirth(new DateTime( $_REQUEST['dateBirth']));
-        $user->setAdresseFacturation($_REQUEST['adresse_facturation']);
-        $user->setAdresseLivraison($_REQUEST['adresse_livraison']);
-        $user->setTel($_REQUEST['tel']);
-        $user->setEmail($_REQUEST['email']);
-        $user->setPassword($_REQUEST['password']);
+        $user->setSexe($_POST['sexe']);
+        $user->setPseudo($_POST['pseudo']);
+        $user->setFirstname($_POST['firstname']);
+        $user->setLastname($_POST['lastname']);
+        $user->setDescription($_POST['description']);
+        $user->setDateBirth(new DateTime( $_POST['dateBirth']));
+        $user->setAdresseFacturation($_POST['adresse_facturation']);
+        $user->setAdresseLivraison($_POST['adresse_livraison']);
+        $user->setTel($_POST['tel']);
+        $user->setEmail($_POST['email']);
+        $user->setPassword($_POST['password']);
 
 
         $result = $db->createUser($user);

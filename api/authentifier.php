@@ -12,7 +12,7 @@
     }
 
     //verifier le Cas où la requette est mal formulée: si le mail ou le password ne sont definis
-    if (!isset($_REQUEST['email']) || !isset($_REQUEST['password']) ) {
+    if (!isset($_POST['email']) || !isset($_POST['password']) ) {
         produceErrorRequest();
         return;
     }
@@ -20,8 +20,8 @@
     //TENTER L'authentification
     try {
         $user = new UserEntity();
-        $user->setEmail($_REQUEST['email']);
-        $user->setPassword($_REQUEST['password']);
+        $user->setEmail($_POST['email']);
+        $user->setPassword($_POST['password']);
 
         
         $dataAuth = $db->authentifier($user);
