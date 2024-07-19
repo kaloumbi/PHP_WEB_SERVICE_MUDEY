@@ -2,9 +2,6 @@
 
     require 'commun_services.php';
 
-    //tester si le nom n'est pas defini
-
-    //var_dump($_REQUEST);
     if (!isset($_REQUEST['id_customers']) || !isset($_REQUEST['id_product']) || !isset($_REQUEST['quantity']) || !isset($_REQUEST['price'])) {
         // var_dump("od");
         produceErrorRequest();

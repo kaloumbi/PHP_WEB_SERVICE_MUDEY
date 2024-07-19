@@ -2,7 +2,7 @@
     class UserEntity {
 
         protected ?int $idUser;
-        protected string $pseudo;
+        protected ?string $pseudo;
         protected string $email;
         protected ?int $sexe;
         protected ?string $password;
@@ -18,29 +18,7 @@
         
 
 
-        /**
-         * Get the value of pseudo
-         *
-         * @return string
-         */
-        public function getPseudo(): string
-        {
-                return $this->pseudo;
-        }
 
-        /**
-         * Set the value of pseudo
-         *
-         * @param string $pseudo
-         *
-         * @return self
-         */
-        public function setPseudo(string $pseudo): self
-        {
-                $this->pseudo = $pseudo;
-
-                return $this;
-        }
 
         /**
          * Get the value of email
@@ -309,6 +287,30 @@
         public function setPassword(?string $password): self
         {
                 $this->password = $password;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of pseudo
+         *
+         * @return ?string
+         */
+        public function getPseudo(): ?string
+        {
+                return $this->pseudo;
+        }
+
+        /**
+         * Set the value of pseudo
+         *
+         * @param ?string $pseudo
+         *
+         * @return self
+         */
+        public function setPseudo(?string $pseudo): self
+        {
+                $this->pseudo = $pseudo;
 
                 return $this;
         }

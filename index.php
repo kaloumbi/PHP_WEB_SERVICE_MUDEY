@@ -16,10 +16,10 @@
     $date = new DateTime();
 
     $user->setSexe(1);
-    $user->setEmail("kaloumbi@gmail.com");
-    $user->setPseudo("Pseudo Kaloumbi");
+    $user->setEmail("ger@gmail.com");
+    $user->setPseudo("Pseudo gervais");
     $user->setPassword("passer");
-    $user->setFirstname("Kaloumbi");
+    $user->setFirstname("Gervinho");
     $user->setLastname("Diedhiou");
     $user->setDateBirth($date);
     $user->setDescription("le meilleur des produits");
@@ -29,7 +29,7 @@
 
 
     $createUser = $db->createUser($user);
-    */
+    var_dump($createUser); */
 
     /**
      * AUTHENTIFICATION
@@ -59,10 +59,22 @@
    $ordTest = $db->createOrders($order);
    var_dump($ordTest); */
 
+
+   /* $product = new ProductEntity();
+   $product->setName("Stylo");
+   $product->setDescription("La meilleur des produits !");
+   $product->setPrice(100);
+   $product->setStock(15);
+   $product->setCategory(3);
+   $product->setImage("art.png");
+
+   $varProd = $db->createProduct($product);
+
+   var_dump($varProd); */
    
 
                     
-    /**
+   /**
      *  LISTER
      */
     // $users = $db->getUsers();

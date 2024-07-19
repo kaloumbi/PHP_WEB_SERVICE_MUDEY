@@ -171,7 +171,9 @@ class DataLayer_class
                 return false;
             }
 
-        } catch (\PDOException $th) {
+        } catch (\PDOException $ex) {
+            echo "Erreur :".$ex->getMessage();
+
             return null;
         }
 
