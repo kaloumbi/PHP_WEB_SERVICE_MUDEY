@@ -416,8 +416,8 @@ class DataLayer_class
             $sql .= " price = '" . $product->getPrice() . "',";
             $sql .= " stock = '" . $product->getStock() . "',";
             $sql .= " category = '" . $product->getCategory() . "',";
-            $sql .= " image = '" . $product->getImage() . "',";
-            $sql .= " createdat = '" . $product->getCreatedAt() . "'";
+            $sql .= " image = '" . $product->getImage() . "'";
+            //$sql .= " createdat = '" . $product->getCreatedAt() . "'";
 
             $sql .= " WHERE id=" . $product->getIdProduct();
 
@@ -445,7 +445,7 @@ class DataLayer_class
         $sql = "UPDATE `e-bestcommerce_mudey_db`.`category` SET ";
 
         try {
-            $sql .= " name = '" . $category->getName() . "',";
+            $sql .= " name = '" . $category->getName() . "'";
 
             $sql .= " WHERE id=" . $category->getIdCategory();
 
@@ -462,8 +462,9 @@ class DataLayer_class
 
             //var_dump($sql);
 
-        } catch (\PDOException $e) {
+        } catch (\PDOException $ex) {
             //throw $th;
+            echo "Erreur :".$ex->getMessage();
             return null;
         }
     }
@@ -476,8 +477,8 @@ class DataLayer_class
             $sql .= " id_customers = '" . $order->getIdUser() . "',";
             $sql .= " id_product = '" . $order->getIdProduct() . "',";
             $sql .= " quantity = '" . $order->getQuantity() . "',";
-            $sql .= " price = '" . $order->getPrice() . "',";
-            $sql .= " createdat = '" . $order->getCreatedAt() . "',";
+            $sql .= " price = '" . $order->getPrice() . "'";
+            //$sql .= " createdat = '" . $order->getCreatedAt() . "'";
 
             $sql .= " WHERE id=" . $order->getIdOrder();
 
@@ -530,7 +531,7 @@ class DataLayer_class
 
     function deleteProducts(ProductEntity $product)
     {
-        $sql = "DELETE FROM `e-bestcommerce_mudey_db`.`customers` WHERE id=" . $product->getIdProduct();
+        $sql = "DELETE FROM `e-bestcommerce_mudey_db`.`product` WHERE id=" . $product->getIdProduct();
 
         try {
 
@@ -557,7 +558,7 @@ class DataLayer_class
      */
     function deleteCategories(CategoryEntity $category)
     {
-        $sql = "DELETE FROM `e-bestcommerce_mudey_db`.`customers` WHERE id=" . $category->getIdCategory();
+        $sql = "DELETE FROM `e-bestcommerce_mudey_db`.`category` WHERE id=" . $category->getIdCategory();
 
         try {
 
@@ -579,7 +580,7 @@ class DataLayer_class
 
     function deleteOrders(OrdersEntity $order)
     {
-        $sql = "DELETE FROM `e-bestcommerce_mudey_db`.`customers` WHERE id=" . $order->getIdOrder();
+        $sql = "DELETE FROM `e-bestcommerce_mudey_db`.`orders` WHERE id=" . $order->getIdOrder();
 
         try {
 

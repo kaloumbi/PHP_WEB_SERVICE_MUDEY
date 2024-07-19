@@ -116,6 +116,25 @@
  */
     //var_dump($upProd);
 
+    /* $category = new CategoryEntity();
+    $category->setName("Cat Updated API");
+    $category->setIdCategory(8);
+
+    $upCateg = $db->updateCategory($category);
+    var_dump($upCateg); */
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      *  DELETE
      */
