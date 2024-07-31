@@ -324,7 +324,7 @@ class DataLayer_class
         }
     }
 
-    function getProducts()
+    function getProducts()  
     {
         $sql = "SELECT * FROM `e-bestcommerce_mudey_db`.`product`";
 

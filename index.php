@@ -1,150 +1,101 @@
 <?php 
+   require 'config/config.php';
 
-    require 'config/config.php';
-    require 'entity/UserEntity.php';
-    require 'entity/CategoryEntity.php';
-    require 'entity/OrdersEntity.php';
-    require 'entity/ProductEntity.php';
-    require 'model/DataLayer.class.php';
+   //Definir la constante BASE_URL
+   define("BASE_URL", dirname($_SERVER['SCRIPT_NAME']));
+?>
 
-    $db = new DataLayer_class();
-    /**
-     *  CREATE USER
-     */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    /* $user = new UserEntity();
-    $date = new DateTime();
+   <style>
+      a{
+         color: black;
+      }
 
-    $user->setSexe(1);
-    $user->setEmail("ger@gmail.com");
-    $user->setPseudo("Pseudo gervais");
-    $user->setPassword("passer");
-    $user->setFirstname("Gervinho");
-    $user->setLastname("Diedhiou");
-    $user->setDateBirth($date);
-    $user->setDescription("le meilleur des produits");
-    $user->setAdresseFacturation("Facture numero 2");
-    $user->setAdresseLivraison("Facture numero 3");
-    $user->setTel("+221775677788"); 
+      p{
+         background-color: #fff;
+         font-size: 35px;
+         border: 1px solid rgba(0, 0, 0, .1) ;
+         box-shadow: 
+         rgba(0, 0, 0, .22),
+         0 14px 56px rgba(0, 0, 0, .25) ;
+      }
 
+      p span:nth-child(1){
+         display: inline-block;
+         font-size: 44px;
+         font-weight: 700;
+         min-width: 200px;
+         padding: 6px 15px;
+         text-align: center;
+         color: #fff;
+      }
 
-    $createUser = $db->createUser($user);
-    var_dump($createUser); */
+      p span:nth-child(2){
+         font-size: 35px;
+         font-weight: 700;
+      }
 
-    /**
-     * AUTHENTIFICATION
-     */
+      .get{
+         background-color: #3caab5;
+         text-transform: uppercase;
+      }
 
-    /* $userAuth = new UserEntity();
-    $userAuth->setEmail("kaloumbi@gmail.com");
-    $userAuth->setPassword("passer");
+      .post{
+         background-color: #78bc61;
+         text-transform: uppercase;
+      }
 
-    $varAuth = $db->authentifier($userAuth);
-   
-    var_dump($varAuth); */
+      .delete{
+         background-color: #f93e3e;
+         text-transform: uppercase;
+      }
 
-    /* $category = new CategoryEntity();
-    $category->setName("CatApi 1");
+      .put{
+         background-color: #fca130;
+         text-transform: uppercase;
+      }
 
-    $categ = $db->createCategory($category);
-    var_dump($categ); */
+      nav.navbar{
+         background-color: #288690 !important;
+      }
 
-   
-  /*  $order = new OrdersEntity();
-   $order->setIdUser(5);
-   $order->setIdProduct(11);
-   $order->setQuantity(10);
-   $order->setPrice(2000);
+   </style>
+   <title>API JSTORE</title>
+</head>
 
-   $ordTest = $db->createOrders($order);
-   var_dump($ordTest); */
+<body>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <a class="navbar-brand" href="#" >JSTORE API</a>
+      <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+   </nav>
+   <div class="container">
+      <h1 class="text-center display-4 ">Documentation</h1>
+   </div>
 
-
-   /* $product = new ProductEntity();
-   $product->setName("Stylo");
-   $product->setDescription("La meilleur des produits !");
-   $product->setPrice(100);
-   $product->setStock(15);
-   $product->setCategory(3);
-   $product->setImage("art.png");
-
-   $varProd = $db->createProduct($product);
-
-   var_dump($varProd); */
-   
-
-                    
-   /**
-     *  LISTER
-     */
-    // $users = $db->getUsers();
-    //$categories = $db->getCategories();
-    // $orders = $db->getOrders();
-    // $products = $db->getProducts();
-    // var_dump($products);
-
-
-    /**
-     *  MISE À JOUR
-     */
-
-    /* $user = new UserEntity();
-    $user->setPseudo("motivation");
-    $user->setEmail("pauline@gmail.com");
-    $user->setFirstname("Pauline");
-    $user->setLastname("Diatta");
-    $user->setSexe(0);
-    $user->setAdresseFacturation("Adresse Fact Pauline");
-    $user->setAdresseLivraison("Adresse Liv Pauline");
-    $user->setIdUser(3);
-
-    $upUsers = $db->updateUser($user);
-
-    var_dump($upUsers); */
-
-    /* $prod = new ProductEntity();
-    $prod->setName("Kal Product");
-    $prod->setDescription("le meilleur des produits !");
-    $prod->setPrice(2000);
-    $prod->setStock(10);
-    $prod->setCategory(2);
-    $prod->setImage("mon image !");
-    $prod->setCreatedAt("2024-04-16 00:00:00");
-    $prod->setIdProduct(3);
-
-    $upProd = $db->updateProduct($prod);
- */
-    //var_dump($upProd);
-
-    /* $category = new CategoryEntity();
-    $category->setName("Cat Updated API");
-    $category->setIdCategory(8);
-
-    $upCateg = $db->updateCategory($category);
-    var_dump($upCateg); */
+   <?php
+      // Ouverture du dossier API
+      foreach ($_ROUTES as $key => $entity) {
+         $response = "<div id='$entity' class='display-4'><h4>" . ucwords($entity) . "</h4>";
+         foreach ($METHODS as $methode => $description) {
+            $response .= "<p><span class='$methode'></span>
+            <span class='url'>
+            <a href='" . BASE_URL . "/api/$entity' target='_blank'>/api/$entity</a>
+            </span>
+            " . $description['description'] . ": $entity</p>";
+         }
+         echo $response . '</div>';
+      }
+   ?>
 
 
-
-
-
-
-
-
-
-
-
-
-
-    /**
-     *  DELETE
-     */
-        /* $user = new UserEntity();
-
-        $delUser = $db->deleteUsers($user->setIdUser(38)); */
-
-        // var_dump($delUser);
-
-
-
-
+</body>
+</html>
 

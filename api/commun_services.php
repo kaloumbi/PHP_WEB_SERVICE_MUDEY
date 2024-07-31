@@ -1,7 +1,10 @@
 <?php 
 
+    error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
+    ini_set('display_errors', 0);
+
     date_default_timezone_set("Europe/Paris");
-    header("content_type: application/json; charset=UTF-8");
+    header("content_type:application/json;charset=UTF-8");
 
     //DEFINITION DES CONSTANTES
     define("API", dirname(__FILE__));
@@ -91,6 +94,6 @@
     }
 
     //APPEL DE LA FONCTION DE SECURISATION DE NOTRE API
-    controlAccess();
+    // controlAccess();
 
 
