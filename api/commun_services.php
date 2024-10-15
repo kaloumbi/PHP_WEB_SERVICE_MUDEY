@@ -94,6 +94,6 @@
     }
 
     //APPEL DE LA FONCTION DE SECURISATION DE NOTRE API
-    // controlAccess();
+    controlAccess();
 
 

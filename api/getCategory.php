@@ -3,10 +3,10 @@
     require 'commun_services.php';
 
     try {
-        $categories = $db->getCategories();
+        $category = $db->getCategories();
         //tester si tout se passe très bien
-        if ($categories) {
-            produceResult(clearDataArray($categories)); //transforme des obets metiers
+        if ($category) {
+            produceResult(clearDataArray($category)); //transforme des obets metiers
         }else{
             produceError("Problemes de Recuperation des données !");
         }

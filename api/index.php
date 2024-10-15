@@ -27,8 +27,17 @@
         if ($_SERVER["REQUEST_METHOD"] === "GET") {
             require './get'.ucwords($action).".php";
         }elseif($_SERVER["REQUEST_METHOD"] ==="POST"){
-            var_dump($action);
-            require './post'.ucwords($action).".php";
+            //var_dump($action);
+            //require './post'.ucwords($action).".php";
+            // Si l'action est "createProduct", alors inclure le fichier approprié
+            if ($action === "products") {
+                require './createProduct.php'; // Inclure le fichier spécifique pour la création
+            } else {
+                require './post'.ucwords($action).".php";
+                //oubien met le nom du fichier en en pluriel : createProducts.php
+            }
+
+            
         }elseif($_SERVER["REQUEST_METHOD"] ==="DELETE"){
             require './delete'.ucwords($action).".php";
         }elseif($_SERVER["REQUEST_METHOD"] ==="PUT"){

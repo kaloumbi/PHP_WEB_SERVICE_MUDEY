@@ -6,7 +6,8 @@
         protected ?int $idProduct;
         protected int $quantity;
         protected float $price;
-        protected DateTime $createdAt;
+        //protected DateTime $createdAt;
+        protected string $createdAt;
 
         
 
@@ -135,12 +136,14 @@
         
 
 
+        
+
         /**
          * Get the value of createdAt
          *
-         * @return DateTime
+         * @return string
          */
-        public function getCreatedAt(): DateTime
+        public function getCreatedAt(): string
         {
                 return $this->createdAt;
         }
@@ -148,11 +151,11 @@
         /**
          * Set the value of createdAt
          *
-         * @param DateTime $createdAt
+         * @param string $createdAt
          *
          * @return self
          */
-        public function setCreatedAt(DateTime $createdAt): self
+        public function setCreatedAt(string $createdAt): self
         {
                 $this->createdAt = $createdAt;
 

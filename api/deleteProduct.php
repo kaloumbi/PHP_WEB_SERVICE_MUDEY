@@ -12,7 +12,7 @@
 
     try {
         $result = $db->deleteProducts($product);
-        
+        //var_dump($result);
         if ($result) {
             produceResult("Suppression reussie !");
         }else{

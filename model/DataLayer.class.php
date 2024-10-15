@@ -307,6 +307,8 @@ class DataLayer_class
                 $order->setIdProduct($data->id_product);
                 $order->setQuantity($data->quantity);
                 $order->setPrice($data->price);
+                $order->setCreatedAt($data->createdat);
+                //$order->setCreatedAt(new DateTime($data->createdat));
                 $orders[] = $order;
             }
 
@@ -345,6 +347,7 @@ class DataLayer_class
                 $product->setName($data->name);
                 $product->setDescription($data->description);
                 $product->setPrice($data->price);
+                $product->setStock($data->stock);
                 $product->setCategory($data->category);
                 $product->setImage($data->image);
                 $product->setCreatedAt($data->createdat);

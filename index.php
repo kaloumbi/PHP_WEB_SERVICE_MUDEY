@@ -84,7 +84,7 @@
       // Ouverture du dossier API
       foreach ($_ROUTES as $key => $entity) {
          $response = "<div id='$entity' class='display-4'><h4>" . ucwords($entity) . "</h4>";
-         foreach ($METHODS as $methode => $description) {
+         foreach ($_METHODS as $methode => $description) {
             $response .= "<p><span class='$methode'></span>
             <span class='url'>
             <a href='" . BASE_URL . "/api/$entity' target='_blank'>/api/$entity</a>
